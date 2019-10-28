@@ -4,10 +4,10 @@ package avltree;
  *
  * @author Mads
  */
-public class AVLTree<E extends Comparable<E>> {
+public class AVLTre<E extends Comparable<E>> {
     private AVLNode<E> root;
 
-    public AVLTree(E inn) {
+    public AVLTre(E inn) {
         root = new AVLNode(inn);
     }
 

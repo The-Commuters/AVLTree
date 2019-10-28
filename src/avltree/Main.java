@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -70,7 +69,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        AVLTree<Integer> t = new AVLTree<>(7);
+        AVLTre<Integer> t = new AVLTre<>(7);
 
         int[] innTab = {5, 4, 3, 2, 6, 12, 15, 9};
         for(int curentNumber : innTab){

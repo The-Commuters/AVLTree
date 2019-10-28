@@ -32,7 +32,7 @@ public class VisualNode extends AVLNode {
 
     // testing vertion to make text + lines for the nodes
     public void makeVisual(double myY, double YGrowth, double myX, double Xadjustment){
-        System.out.println("node at " super.height() + " height creates text at X=" + myX + " Y=" + myY);
+        System.out.println("node at " + super.height() + " height creates text at X=" + myX + " Y=" + myY);
 
         // left side subtrakts from Y
         if(super.left != null){

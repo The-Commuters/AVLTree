@@ -5,7 +5,7 @@ package avltree;
  * @author Mads
  */
 public class AVLTre<E extends Comparable<E>> {
-    private AVLNode<E> root;
+    protected AVLNode<E> root;
 
     public AVLTre(E inn) {
         root = new AVLNode(inn);

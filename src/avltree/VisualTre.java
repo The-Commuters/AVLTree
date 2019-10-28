@@ -2,6 +2,8 @@ package avltree;
 
 public class VisualTre extends AVLTre {
 
+
+
     public VisualTre(Comparable inn) {
         super(inn);
     }
@@ -20,11 +22,20 @@ public class VisualTre extends AVLTre {
     *   lager en strek til hvert av barna sine
     *   ber barna om og gjøre det samme
     *       X og Y kordinater er basert på metodene over
-    *           X vokser fast nedover med en variabel som blir sent fra en til hver itterasjon
-    *           Y krymper eller vokser med halvparten av sine foreldres styrke
+    *           Y vokser fast nedover med en variabel som blir sent fra en til hver itterasjon
+    *           X krymper eller vokser med halvparten av sine foreldres styrke
     *               venstre blir halvparten mindre
     *               høyre blir halvparten større
     * */
+
+    public void makeVisual(double viewX, double viewY){
+        double xStart = viewX / 2;
+        double yGrowth = viewY / (root.height() + 1);
+        System.out.println("X start: " + xStart + " | Y start: " + yGrowth);
+        VisualNode visualRoot = (VisualNode)super.root;
+        visualRoot.makeVisual(yGrowth, yGrowth, xStart, xStart);
+        // kalle på VisualNode in metod eog skrive n' ut
+    }
 
 
 

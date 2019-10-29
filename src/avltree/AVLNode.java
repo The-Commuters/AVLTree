@@ -1,4 +1,8 @@
 package avltree;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 /**
  *
  * @author Mads
@@ -52,29 +56,28 @@ public class AVLNode<E extends Comparable<E>> {
     }
 
     public int size(){
-        int mySize = 1;
+        int size = 1;
         if(right != null){
-            mySize += right.size();
+            size += right.size();
         }
         if(left != null){
-            mySize += left.size();
+            size += left.size();
         }
-
-        return mySize;
+        return size;
     }
 
     public int height() {
-        return height(0, 0);
-    }
-
-    private int height(int leftHeight, int rightHeight) {
-        if (left != null) {
-            leftHeight = left.height(leftHeight + 1, rightHeight);
+        int leftHeight = 0;
+        int rightHeight = 0;
+        if(left != null){
+            leftHeight = left.height();
+            leftHeight++;
         }
-        if (right != null) {
-            rightHeight = right.height(leftHeight, rightHeight + 1);
+        if (right != null){
+            rightHeight = right.height();
+            rightHeight++;
         }
-        return Math.max(rightHeight, leftHeight);
+        return Math.max(leftHeight, rightHeight);
     }
 
     public void addContent(E newContent){

@@ -63,31 +63,6 @@ public class AVLNode<E extends Comparable<E>> {
         return mySize;
     }
 
-    private int legacyHeight(){
-        int leftHeight = -1, rightHeight = -1;
-        if (right != null){
-            rightHeight = right.height();
-        }
-        if(left != null){
-            leftHeight = left.height();
-        }
-        return Math.max(leftHeight, rightHeight) + 1;
-    }
-
-    private int legacyHeightV2(){
-        int leftHeight = 0;
-        int rightHeight = 0;
-        if(left != null){
-            leftHeight = left.height();
-            leftHeight++;
-        }
-        if (right != null){
-            rightHeight = right.height();
-            rightHeight++;
-        }
-        return Math.max(leftHeight, rightHeight);
-    }
-
     public int height() {
         return height(0, 0);
     }

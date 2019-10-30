@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -25,7 +26,9 @@ public class Main extends Application {
 
     Label textInputLabel = new Label("Number to add");
 
-    TextField input;
+    NumberTextField input;
+
+    String inputString;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -36,10 +39,34 @@ public class Main extends Application {
         btnTest = new Button();
         btnTest.setText("Test");
 
-        input = new TextField();
+        input = new NumberTextField();
+
+        input.setOnKeyPressed(event -> {
+            // Checks that the key entered is the enter button
+            if(event.getCode() == KeyCode.ENTER){
+
+                // Saves the inputted string in a variable so, that the text field can be cleared
+
+                inputString = input.getText();
+
+                //Clears the input field after the user has pressed Enter
+
+                // Check that the inputted value is a number, so that there will be no issues with this later on - DONE
+
+                // Adds the value from the user to the tree using a method
+
+                // This method will then add the value to the tree and then display it,
+                // after it has placed it in to the correct sub/root node
+
+                // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
+
+                System.out.println(inputString);
+
+            }
+
+        });
 
         drawPane.setStyle("-fx-background-color: white;" + "-fx-border-color: black");
-
 
         HBox buttonBar = new HBox(10);
 
@@ -51,7 +78,6 @@ public class Main extends Application {
 
         // Adds all the gui elements in turn to the HBox buttonBar
         buttonBar.getChildren().addAll(btnTest, textInputLabel, input );
-
 
 
         rootPane.setTop(buttonBar);

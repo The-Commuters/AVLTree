@@ -1,7 +1,6 @@
-package avltree;
+package AVLTreeVisual;
 
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 
 import java.util.regex.Pattern;
 

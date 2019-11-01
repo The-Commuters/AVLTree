@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
  *
  * @author Markus Fenes
  * @author Mads Hagen
+ * @author David Naist Øvernes
  */
 
 public class Main extends Application {
@@ -93,29 +94,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
-        AVLTre<Integer> t = new AVLTre<>(7);
-
-        int[] innTab = {5, 4, 3, 2, 6, 12, 15, 9};
-        for(int curentNumber : innTab){
-            t.add(curentNumber);
-            System.out.print(" | " + curentNumber);
-        }
-        System.out.println("\nsize of: " + t.size());
-        System.out.println("height of: " + t.height());
-
-        int[] findTab = {5, 31, 14, 15, 9};
-        for(int currentNumber : findTab){
-            Integer target;
-            target = t.find(currentNumber);
-            if(target == null){
-                System.out.println(currentNumber + " Could not be found");
-            }
-            else{
-                System.out.println(target + " found");
-            }
-        }
-
         launch(args);
     }
 }

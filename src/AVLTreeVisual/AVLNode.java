@@ -1,7 +1,4 @@
-package avltree;
-
-import java.util.function.Consumer;
-import java.util.function.Function;
+package AVLTreeVisual;
 
 /**
  *

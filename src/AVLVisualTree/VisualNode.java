@@ -1,4 +1,4 @@
-package AVLTreeVisual;
+package AVLVisualTree;
 
 public class VisualNode extends AVLNode {
 

@@ -1,4 +1,4 @@
-package AVLTreeVisual;
+package AVLVisualTree;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;

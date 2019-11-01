@@ -1,4 +1,4 @@
-package AVLTreeVisual;
+package AVLVisualTree;
 
 import javafx.scene.control.TextField;
 

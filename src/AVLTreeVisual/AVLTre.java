@@ -1,13 +1,13 @@
-package avltree;
+package AVLTreeVisual;
 
 /**
  *
  * @author Mads
  */
-public class AVLTree<E extends Comparable<E>> {
-    private AVLNode<E> root;
+public class AVLTre<E extends Comparable<E>> {
+    protected AVLNode<E> root;
 
-    public AVLTree(E inn) {
+    public AVLTre(E inn) {
         root = new AVLNode(inn);
     }
 

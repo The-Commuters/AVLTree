@@ -1,4 +1,5 @@
-package avltree;
+package AVLTreeVisual;
+
 /**
  *
  * @author Mads
@@ -52,26 +53,28 @@ public class AVLNode<E extends Comparable<E>> {
     }
 
     public int size(){
-        int mySize = 1;
+        int size = 1;
         if(right != null){
-            mySize += right.size();
+            size += right.size();
         }
         if(left != null){
-            mySize += left.size();
+            size += left.size();
         }
-
-        return mySize;
+        return size;
     }
 
-    public int height(){
-        int leftHeight = -1, rightHeight = -1;
-        if (right != null){
-            rightHeight = right.height();
-        }
+    public int height() {
+        int leftHeight = 0;
+        int rightHeight = 0;
         if(left != null){
             leftHeight = left.height();
+            leftHeight++;
         }
-        return Math.max(leftHeight, rightHeight) + 1;
+        if (right != null){
+            rightHeight = right.height();
+            rightHeight++;
+        }
+        return Math.max(leftHeight, rightHeight);
     }
 
     public void addContent(E newContent){

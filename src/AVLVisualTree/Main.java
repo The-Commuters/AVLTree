@@ -79,6 +79,12 @@ public class Main extends Application {
         // Adds all the gui elements in turn to the HBox buttonBar
         buttonBar.getChildren().addAll(btnTest, textInputLabel, input );
 
+        // TEST //
+        AVLVisualNode<String> node = new AVLVisualNode<>("1234");
+        node.layoutXProperty().bind(drawPane.widthProperty().divide(2).subtract(node.getRadius()));
+        node.layoutYProperty().bind(drawPane.heightProperty().divide(2).subtract(node.getRadius()));
+        drawPane.getChildren().add(node);
+        // TEST //
 
         rootPane.setTop(buttonBar);
         rootPane.setCenter(drawPane);

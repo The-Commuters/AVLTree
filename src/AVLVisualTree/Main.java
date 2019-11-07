@@ -11,7 +11,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -41,26 +40,28 @@ public class Main extends Application {
 
         btnTest = new Button();
         btnTest.setText("Test");
-        AVLVisualTree<String> visualTree = new AVLVisualTree<String>();
+
+        input = new NumberTextField();
+
+        AVLVisualTree<Integer> visualTree = new AVLVisualTree<Integer>();
+
 
         input = new NumberTextField();
 
         btnTest.setOnAction(event -> {
             for (int i = 0; i <250 ; i++) {
                 int rand = (int)(Math.random() * 1*i) + 10;
-                visualTree.insert(rand+"");
+                visualTree.insert(rand);
             }
 
 
         });
-        
+
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
             if(event.getCode() == KeyCode.ENTER){
 
                 // Saves the inputted string in a variable so, that the text field can be cleared
-
-                inputString = input.getText();
 
                 //Clears the input field after the user has pressed Enter
 
@@ -72,10 +73,11 @@ public class Main extends Application {
                 // after it has placed it in to the correct sub/root node
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
+                visualTree.insert(Integer.parseInt(input.getText()));
 
                 input.clear();
 
-                visualTree.insert(inputString);
+
 
             }
 
@@ -106,8 +108,9 @@ public class Main extends Application {
         Scene scene = new Scene(rootPane);
 
         primaryStage.setTitle("AVL-tree generator");
-        primaryStage.setHeight(500);
-        primaryStage.setWidth(1000);
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(750);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

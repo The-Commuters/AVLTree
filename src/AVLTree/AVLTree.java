@@ -87,33 +87,6 @@ public class AVLTree<T extends Comparable<T>> {
         }
     }
 
-    public T delete(T element) {
-        if (root != null) {
-            return delete(root, element);
-        }
-        else {
-            // TODO: empty tree handling
-            System.out.println("ERROR");
-            return null;
-        }
-    }
-
-    private T delete(AVLNode<T> AVLNode, T element) {
-        if (element.compareTo(AVLNode.element) == 0) {
-
-        }
-
-        if ((element.compareTo(AVLNode.element) < 0) && (AVLNode.left != null)) {
-            return delete(AVLNode.left, element);
-        }
-
-        if ((element.compareTo(AVLNode.element) > 0) && (AVLNode.right != null)) {
-            return delete(AVLNode.right, element);
-        }
-
-        return null;
-    }
-
     private AVLNode<T> balance(AVLNode<T> AVLNode, T element) {
         int balance = AVLNode.getBalanceFactor();
 

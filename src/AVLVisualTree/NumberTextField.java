@@ -4,6 +4,10 @@ import javafx.scene.control.TextField;
 
 import java.util.regex.Pattern;
 
+/**
+ * This is a class that extends TextField and
+ * when created it will make a text field, that only will accept numbers
+ */
 public class NumberTextField extends TextField {
 
     /*

@@ -16,8 +16,8 @@ import javafx.scene.control.Button;
 /**
  * To start the AVL tree generator
  *
- * @author Markus Fenes
- * @author Mads Hagen
+ * @author Markus Madsen Fenes
+ * @author Mads Fredrik Hagen
  * @author David Naist Øvernes
  */
 
@@ -42,6 +42,10 @@ public class Main extends Application {
 
         AVLTree<Integer> t = new AVLTree<Integer>();
         input = new NumberTextField();
+
+        btnTest.setOnKeyPressed(event -> {
+
+        });
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button

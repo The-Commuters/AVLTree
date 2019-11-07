@@ -45,10 +45,17 @@ public class Main extends Application {
 
         AVLVisualTree<Integer> visualTree = new AVLVisualTree<Integer>();
 
-        btnTest.setOnKeyPressed(event -> {
+
+        input = new NumberTextField();
+
+        btnTest.setOnAction(event -> {
+            for (int i = 0; i <250 ; i++) {
+                int rand = (int)(Math.random() * 1*i) + 10;
+                visualTree.insert(rand);
+            }
+
 
         });
-      
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
@@ -67,6 +74,9 @@ public class Main extends Application {
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
                 visualTree.insert(Integer.parseInt(input.getText()));
+
+                input.clear();
+
 
 
             }

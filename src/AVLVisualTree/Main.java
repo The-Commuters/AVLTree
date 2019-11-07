@@ -43,7 +43,7 @@ public class Main extends Application {
 
         input = new NumberTextField();
 
-        AVLVisualTree<String> visualTree = new AVLVisualTree<String>();
+        AVLVisualTree<Integer> visualTree = new AVLVisualTree<Integer>();
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
@@ -64,7 +64,7 @@ public class Main extends Application {
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
 
-                visualTree.insert(inputString);
+                visualTree.insert(Integer.parseInt(inputString));
 
             }
 
@@ -95,8 +95,9 @@ public class Main extends Application {
         Scene scene = new Scene(rootPane);
 
         primaryStage.setTitle("AVL-tree generator");
-        primaryStage.setHeight(500);
-        primaryStage.setWidth(1000);
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(750);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

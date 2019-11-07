@@ -30,13 +30,13 @@ public class AVLVisualTree<T extends Comparable<T>> extends Pane {
     public void drawTree() {
         this.getChildren().clear();
         if (avlTree.root != null) {
-            drawTree(avlTree.root, this.widthProperty().divide(2), 1);
+            drawTree(avlTree.root, this.widthProperty().divide(2), this.widthProperty().divide(2), 1);
         }
     }
 
-    public void drawTree(AVLNode<T> node, DoubleBinding parentWidth, int row) {
+    public void drawTree(AVLNode<T> node, DoubleBinding parentWidth, DoubleBinding passedX, int row) {
         AVLVisualNode<T> visualNode = new AVLVisualNode<T>(node.element);
-        DoubleBinding x = parentWidth.subtract(visualNode.getRadius());
+        DoubleBinding x = passedX.subtract(visualNode.getRadius());
         visualNode.layoutXProperty().bind(x);
 
         DoubleBinding step = this.heightProperty().divide(avlTree.root.height + 1);
@@ -47,23 +47,25 @@ public class AVLVisualTree<T extends Comparable<T>> extends Pane {
 
         if (node.left != null) {
             // TODO: fix newX
-            DoubleBinding newX = parentWidth.subtract(parentWidth.divide(2));
+            DoubleBinding newParentWidth = parentWidth.divide(2);
+            DoubleBinding newX = passedX.subtract(newParentWidth);
             DoubleBinding newY = step.multiply(row + 1);
 
             drawLine(x, y, newY, newX, visualNode);
 
-            drawTree(node.left, newX, row + 1);
+            drawTree(node.left, newParentWidth, newX, row + 1);
             System.out.println(newX.getValue());
         }
 
         if (node.right != null) {
             // TODO: fix newX
-            DoubleBinding newX = parentWidth.add(parentWidth.divide(2));
+            DoubleBinding newParentWidth = parentWidth.divide(2);
+            DoubleBinding newX = passedX.add(newParentWidth);
             DoubleBinding newY = step.multiply(row + 1);
 
             drawLine(x, y, newY, newX, visualNode);
 
-            drawTree(node.right, parentWidth.add(parentWidth.divide(2)), row + 1);
+            drawTree(node.right, newParentWidth, newX, row + 1);
 
         }
 

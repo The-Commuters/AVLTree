@@ -11,14 +11,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 /**
  * To start the AVL tree generator
  *
- * @author Markus Fenes
- * @author Mads Hagen
+ * @author Markus Madsen Fenes
+ * @author Mads Fredrik Hagen
  * @author David Naist Øvernes
  */
 
@@ -40,11 +41,19 @@ public class Main extends Application {
 
         btnTest = new Button();
         btnTest.setText("Test");
+        AVLVisualTree<String> visualTree = new AVLVisualTree<String>();
 
         input = new NumberTextField();
 
-        AVLVisualTree<String> visualTree = new AVLVisualTree<String>();
+        btnTest.setOnAction(event -> {
+            for (int i = 0; i <250 ; i++) {
+                int rand = (int)(Math.random() * 1*i) + 10;
+                visualTree.insert(rand+"");
+            }
 
+
+        });
+        
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
             if(event.getCode() == KeyCode.ENTER){
@@ -63,6 +72,8 @@ public class Main extends Application {
                 // after it has placed it in to the correct sub/root node
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
+
+                input.clear();
 
                 visualTree.insert(inputString);
 

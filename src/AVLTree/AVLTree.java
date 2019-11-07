@@ -1,7 +1,7 @@
 package AVLTree;
 
 public class AVLTree<T extends Comparable<T>> {
-    AVLNode<T> root;
+    private AVLNode<T> root;
 
     public AVLTree() {
 

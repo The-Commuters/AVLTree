@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -35,25 +36,25 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         BorderPane rootPane = new BorderPane();
-        Pane drawPane = new Pane();
+        StackPane drawPane = new StackPane();
 
         btnTest = new Button();
         btnTest.setText("Test");
 
-        AVLTree<Integer> t = new AVLTree<Integer>();
         input = new NumberTextField();
+
+        AVLVisualTree<Integer> visualTree = new AVLVisualTree<Integer>();
 
         btnTest.setOnKeyPressed(event -> {
 
         });
+      
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
             if(event.getCode() == KeyCode.ENTER){
 
                 // Saves the inputted string in a variable so, that the text field can be cleared
-
-                inputString = input.getText();
 
                 //Clears the input field after the user has pressed Enter
 
@@ -65,7 +66,7 @@ public class Main extends Application {
                 // after it has placed it in to the correct sub/root node
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
-                t.insert(Integer.parseInt(inputString));
+                visualTree.insert(Integer.parseInt(input.getText()));
 
 
             }
@@ -85,6 +86,11 @@ public class Main extends Application {
         // Adds all the gui elements in turn to the HBox buttonBar
         buttonBar.getChildren().addAll(btnTest, textInputLabel, input );
 
+        // TEST //
+
+
+        drawPane.getChildren().add(visualTree);
+        // TEST //
 
         rootPane.setTop(buttonBar);
         rootPane.setCenter(drawPane);
@@ -92,8 +98,9 @@ public class Main extends Application {
         Scene scene = new Scene(rootPane);
 
         primaryStage.setTitle("AVL-tree generator");
-        primaryStage.setHeight(500);
-        primaryStage.setWidth(1000);
+        primaryStage.setMinWidth(1000);
+        primaryStage.setMinHeight(750);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

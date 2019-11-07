@@ -11,12 +11,11 @@ public class NumberTextField extends TextField {
      Give notice to the user when non numerical values are entered.
     */
 
-    /*
-    Creates a pattern for the validate method to use, so that it will be reused
-    and not compiled every time someone writes something in to the box.
+    /**
+    * Creates a pattern for the validate method to use, so that it will be reused
+    * and not compiled every time someone writes something in to the box.
     */
-
-    private static Pattern integerPattern = Pattern.compile("[0-9]*");
+    private static Pattern integerPattern = Pattern.compile("\\d*");
 
 
     /**
@@ -56,6 +55,13 @@ public class NumberTextField extends TextField {
      */
     private boolean validate(String text)
     {
-        return integerPattern.matcher(text).matches();
+        /*
+        This will check that if the text has a length greater than 10,
+        it wont allow it thru and the text == ""
+        is there to allow for removing/backspacing numbers in the field
+         */
+        if (this.getText().length() < 10 || text == "")
+            return integerPattern.matcher(text).matches();
+        return false;
     }
 }

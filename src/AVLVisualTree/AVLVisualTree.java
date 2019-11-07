@@ -46,7 +46,6 @@ public class AVLVisualTree<T extends Comparable<T>> extends Pane {
 
 
         if (node.left != null) {
-            // TODO: fix newX
             DoubleBinding newParentWidth = parentWidth.divide(2);
             DoubleBinding newX = passedX.subtract(newParentWidth);
             DoubleBinding newY = step.multiply(row + 1);
@@ -54,11 +53,9 @@ public class AVLVisualTree<T extends Comparable<T>> extends Pane {
             drawLine(x, y, newY, newX, visualNode);
 
             drawTree(node.left, newParentWidth, newX, row + 1);
-            System.out.println(newX.getValue());
         }
 
         if (node.right != null) {
-            // TODO: fix newX
             DoubleBinding newParentWidth = parentWidth.divide(2);
             DoubleBinding newX = passedX.add(newParentWidth);
             DoubleBinding newY = step.multiply(row + 1);

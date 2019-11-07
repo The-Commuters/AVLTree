@@ -1,5 +1,6 @@
 package AVLVisualTree;
 
+import AVLTree.AVLTree;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -39,6 +40,7 @@ public class Main extends Application {
         btnTest = new Button();
         btnTest.setText("Test");
 
+        AVLTree<Integer> t = new AVLTree<Integer>();
         input = new NumberTextField();
 
         input.setOnKeyPressed(event -> {
@@ -59,8 +61,8 @@ public class Main extends Application {
                 // after it has placed it in to the correct sub/root node
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
+                t.insert(Integer.parseInt(inputString));
 
-                System.out.println(inputString);
 
             }
 

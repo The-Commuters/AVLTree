@@ -1,10 +1,10 @@
 package AVLTree;
 
 public class AVLNode<T extends Comparable<T>> {
-    T element;
-    AVLNode<T> left;
-    AVLNode<T> right;
-    int height;
+    public T element;
+    public AVLNode<T> left;
+    public AVLNode<T> right;
+    public int height;
 
     public AVLNode(T element) {
         this.element = element;

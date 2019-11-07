@@ -1,5 +1,6 @@
 package AVLVisualTree;
 
+import AVLTree.AVLTree;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -34,12 +36,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         BorderPane rootPane = new BorderPane();
-        Pane drawPane = new Pane();
+        StackPane drawPane = new StackPane();
 
         btnTest = new Button();
         btnTest.setText("Test");
 
         input = new NumberTextField();
+
+        AVLVisualTree<String> visualTree = new AVLVisualTree<String>();
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
@@ -60,7 +64,7 @@ public class Main extends Application {
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
 
-                System.out.println(inputString);
+                visualTree.insert(inputString);
 
             }
 
@@ -80,10 +84,9 @@ public class Main extends Application {
         buttonBar.getChildren().addAll(btnTest, textInputLabel, input );
 
         // TEST //
-        AVLVisualNode<String> node = new AVLVisualNode<>("1234");
-        node.layoutXProperty().bind(drawPane.widthProperty().divide(2).subtract(node.getRadius()));
-        node.layoutYProperty().bind(drawPane.heightProperty().divide(2).subtract(node.getRadius()));
-        drawPane.getChildren().add(node);
+
+
+        drawPane.getChildren().add(visualTree);
         // TEST //
 
         rootPane.setTop(buttonBar);

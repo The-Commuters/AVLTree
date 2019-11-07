@@ -1,10 +1,12 @@
 package AVLTree;
 
 public class AVLTree<T extends Comparable<T>> {
-    private AVLNode<T> root;
+    public AVLNode<T> root;
 
-    public AVLTree() {
+    public AVLTree() {}
 
+    public int getHeight() {
+        return root.height;
     }
 
     public T search(T element) {
@@ -161,17 +163,5 @@ public class AVLTree<T extends Comparable<T>> {
         newRoot.updateHeight();
 
         return newRoot;
-    }
-
-    public void preOrder() {
-        preOrder(root);
-    }
-
-    private void preOrder(AVLNode AVLNode) {
-        if (AVLNode != null) {
-            System.out.print(AVLNode.element + " ");
-            preOrder(AVLNode.left);
-            preOrder(AVLNode.right);
-        }
     }
 }

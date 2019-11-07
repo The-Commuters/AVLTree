@@ -1,5 +1,6 @@
 package AVLVisualTree;
 
+import AVLTree.AVLVisualTree;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,8 +16,8 @@ import javafx.scene.control.Button;
 /**
  * To start the AVL tree generator
  *
- * @author Markus Fenes
- * @author Mads Hagen
+ * @author Markus Madsen Fenes
+ * @author Mads Fredrik Hagen
  * @author David Naist Øvernes
  */
 
@@ -34,12 +35,17 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         BorderPane rootPane = new BorderPane();
-        Pane drawPane = new Pane();
+        //Pane drawPane = new Pane();
 
         btnTest = new Button();
         btnTest.setText("Test");
 
         input = new NumberTextField();
+        AVLVisualTree<String> tree = new AVLVisualTree<String>();
+
+        btnTest.setOnKeyPressed(event -> {
+
+        });
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
@@ -60,13 +66,17 @@ public class Main extends Application {
 
                 // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
 
+                tree.insert(inputString);
+                tree.refresh();
                 System.out.println(inputString);
+
 
             }
 
         });
 
-        drawPane.setStyle("-fx-background-color: white;" + "-fx-border-color: black");
+        tree.setStyle("-fx-background-color: white;" + "-fx-border-color: black");
+
 
         HBox buttonBar = new HBox(10);
 
@@ -81,7 +91,7 @@ public class Main extends Application {
 
 
         rootPane.setTop(buttonBar);
-        rootPane.setCenter(drawPane);
+        rootPane.setCenter(tree);
 
         Scene scene = new Scene(rootPane);
 

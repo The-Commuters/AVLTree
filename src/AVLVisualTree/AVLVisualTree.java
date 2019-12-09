@@ -20,7 +20,11 @@ public class AVLVisualTree<T extends Comparable<T>> extends Pane {
         return avlTree.search(element);
     }
 
-   
+
+    public void clear(){
+        avlTree = new AVLTree<T>();
+        this.getChildren().clear();
+    }
 
     public void drawTree() {
         this.getChildren().clear();

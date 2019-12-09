@@ -75,7 +75,6 @@ public class AVLTree<T extends Comparable<T>> {
         }
 
         if (element.compareTo(AVLNode.element) == 0) {
-            // TODO: make it a popup
             System.out.println("NO DUPLICATES");
             return;
         }

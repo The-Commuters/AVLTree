@@ -49,30 +49,20 @@ public class Main extends Application {
         input = new NumberTextField();
 
         btnTest.setOnAction(event -> {
-            for (int i = 0; i <250 ; i++) {
-                int rand = (int)(Math.random() * 1*i) + 10;
+            visualTree.clear();
+            for (int i = 0; i <50 ; i++) {
+                int rand;
+                do {
+                    rand = (int)(Math.random() * 1000);
+                } while (visualTree.search(rand) != null);
                 visualTree.insert(rand);
             }
-
-
         });
 
         input.setOnKeyPressed(event -> {
             // Checks that the key entered is the enter button
             if(event.getCode() == KeyCode.ENTER){
 
-                // Saves the inputted string in a variable so, that the text field can be cleared
-
-                //Clears the input field after the user has pressed Enter
-
-                // Check that the inputted value is a number, so that there will be no issues with this later on - DONE
-
-                // Adds the value from the user to the tree using a method
-
-                // This method will then add the value to the tree and then display it,
-                // after it has placed it in to the correct sub/root node
-
-                // The tree is updated and shown to the user and the input field will be ready for a new value to be entered
                 visualTree.insert(Integer.parseInt(input.getText()));
 
                 input.clear();

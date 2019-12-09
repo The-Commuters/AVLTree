@@ -10,11 +10,6 @@ import java.util.regex.Pattern;
  */
 public class NumberTextField extends TextField {
 
-    /*
-    TODO
-     Give notice to the user when non numerical values are entered.
-    */
-
     /**
     * Creates a pattern for the validate method to use, so that it will be reused
     * and not compiled every time someone writes something in to the box.
